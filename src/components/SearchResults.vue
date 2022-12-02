@@ -24,7 +24,9 @@ const increasePage = () => {
 </script>
 
 <template>
-	<section class="search-results">
+	<section class="search-results" :data-loading="loading">
+		<small v-if="(termLength > 0 && !loading)" class="search-results__status">Displaying search results for {{searchTerm}}</small>
+
 		<div v-if="(resultsLength === 0 && termLength > 0 && !loading)">Sorry, no results.</div>
 		<div v-else class="search-results__container">
 			<SearchResult 
@@ -51,5 +53,48 @@ const increasePage = () => {
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+	.search-results {
+		display: flex;
+		flex-direction: column;
+
+		&__status {
+			margin-bottom: 16px;
+		}
+
+		&__container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 32px;
+		}
+
+		&__pagination {
+			display: flex;
+			justify-content: center;
+			gap: 16px;
+			margin-top: 32px;
+
+			> button {
+				background: none;
+				border: 2px solid var(--black);
+				transition: var(--transition-duration) all ease-in-out;
+				padding: 12px 24px;
+				border-radius: 32px;
+
+				&[disabled] {
+					border-color: var(--gray);
+					color: var(--gray);
+					opacity: 0.5;
+					pointer-events: none;
+				}
+
+				&:hover,
+				&:focus {
+					cursor: pointer;
+					background: var(--black);
+					color: var(--white);
+				}
+			}
+		}
+	}
 </style>

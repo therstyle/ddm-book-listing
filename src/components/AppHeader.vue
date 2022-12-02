@@ -33,7 +33,7 @@
 			</SearchBox>
 
 			<div class="main-header__rpp">
-				<label for="rpp-selector">Posts Per Page</label>
+				<label for="rpp-selector">Books Per Page</label>
 				<select id="rpp-selector" v-model="resultsAmount" @change="updateResultsAmount">
 					<option value="2">2</option>
 					<option value="6">6</option>
@@ -42,3 +42,27 @@
 			</div>
 		</header>
 </template>
+
+<style lang="scss">
+	.main-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 32px;
+		width: 100%;
+
+		&__logo {
+			img {
+				max-width: 200px;
+			}
+		}
+
+		&__rpp {
+			display: flex;
+			flex-direction: column;
+			font-size: 12px;
+			gap: 8px;
+		}
+	}
+</style>

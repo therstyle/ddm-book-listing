@@ -67,5 +67,16 @@
 
 <style lang="scss">
 	@import './assets/css/vars';
+	@import './assets/css/fonts';
 	@import './assets/css/global';
+
+	.app-container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 32px;
+		padding: 16px;
+		max-width: 1200px;
+		margin: auto;
+	}
 </style>
