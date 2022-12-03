@@ -1,5 +1,5 @@
 <script setup>
-import {computed} from 'vue';
+import {ref, computed} from 'vue';
 import SearchResult from './SearchResult.vue';
 
 const props = defineProps({
@@ -11,20 +11,31 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['set-page']);
+const container = ref(null);
 const resultsLength = computed(() => props.searchResults ? props.searchResults.length : 0);
 const termLength = computed(() => props.searchTerm ? props.searchTerm.length : 0);
 
 const decreasePage = () => {
 	emit('set-page', props.page - 1);
+	scrollToTop();
 }
 
 const increasePage = () => {
 	emit('set-page', props.page + 1);
+	scrollToTop();
+}
+
+const scrollToTop = () => {
+	window.scroll({
+		behavior: 'smooth',
+		left: 0,
+		top: container.value.offsetTop
+	});
 }
 </script>
 
 <template>
-	<section class="search-results" :data-loading="loading">
+	<section class="search-results" :data-loading="loading" ref="container">
 		<small v-if="(termLength > 0 && !loading)" class="search-results__status">Displaying search results for {{searchTerm}}</small>
 
 		<div v-if="(resultsLength === 0 && termLength > 0 && !loading)">Sorry, no results.</div>
@@ -54,17 +65,29 @@ const increasePage = () => {
 </template>
 
 <style lang="scss" scoped>
+	@import '../assets/css/vars.scss';
 	.search-results {
 		display: flex;
 		flex-direction: column;
+		transition: var(--transition-duration) all ease-in-out;
+
+		&[data-loading="true"] {
+			opacity: 0;
+		}
 
 		&__status {
 			margin-bottom: 16px;
 		}
 
 		&__container {
+			--columns: 2;
+
+			@include mobile {
+				--columns: 1;
+			}
+
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(var(--columns), 1fr);
 			gap: 32px;
 		}
 
