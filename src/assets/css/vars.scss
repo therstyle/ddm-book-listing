@@ -1,3 +1,20 @@
+//breakpoints
+$mobile: 600px;
+$tablet: 768px;
+$desktop: $tablet + 1;
+
+@mixin mobile() {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+
+@mixin desktop() {
+	@media (min-width: $desktop) {
+		@content;
+	}
+}
+
 :root {
 	//colors
 	--black: #000;

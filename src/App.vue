@@ -66,9 +66,9 @@
 </template>
 
 <style lang="scss">
-	@import './assets/css/vars';
-	@import './assets/css/fonts';
-	@import './assets/css/global';
+	@import './assets/css/vars.scss';
+	@import './assets/css/fonts.scss';
+	@import './assets/css/global.scss';
 
 	.app-container {
 		display: flex;

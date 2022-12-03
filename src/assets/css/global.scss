@@ -8,6 +8,10 @@
 	outline: 2px solid var(--orange);
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin: 0;
 	font-family: var(--main-font);
