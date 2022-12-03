@@ -49,7 +49,7 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		gap: 32px;
+		gap: var(--space-2);
 		width: 100%;
 
 		&__logo {

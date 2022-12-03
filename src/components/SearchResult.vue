@@ -25,7 +25,7 @@
 	.search-results {
 		&__result {
 			display: flex;
-			gap: 16px;
+			gap: var(--space-1);
 
 			h3 {
 				margin: 0;
@@ -35,7 +35,7 @@
 		&__image {
 			display: flex;
 			align-items: flex-end;
-			
+
 			img {
 				border: 1px solid var(--light-gray);
 			}

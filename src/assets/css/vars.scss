@@ -26,6 +26,13 @@ $desktop: $tablet + 1;
 	//fonts
 	--main-font: 'Oswald', sans-serif;
 
+	//sizes
+	--space: 16px;
+	--space-1: var(--space);
+	--space-2: calc(var(--space) * 2);
+	--space-3: calc(var(--space) * 3);
+	--space-4: calc(var(--space) * 4);
+
 	//misc
 	--transition-duration: 0.3s;
 }

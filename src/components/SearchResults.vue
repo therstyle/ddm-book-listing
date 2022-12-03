@@ -76,7 +76,7 @@ const scrollToTop = () => {
 		}
 
 		&__status {
-			margin-bottom: 16px;
+			margin-bottom: var(--space-1);
 		}
 
 		&__container {
@@ -95,7 +95,7 @@ const scrollToTop = () => {
 			display: flex;
 			justify-content: center;
 			gap: 16px;
-			margin-top: 32px;
+			margin-top: var(--space-2);
 
 			> button {
 				background: none;
