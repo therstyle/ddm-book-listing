@@ -30,7 +30,7 @@
 
 		&__input {
 			border: 1px solid var(--light-gray);
-			border-radius: 50px;
+			border-radius: 32px;
 			display: flex;
 			gap: 12px;
 			align-items: center;

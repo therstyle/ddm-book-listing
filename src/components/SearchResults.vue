@@ -69,10 +69,44 @@ const scrollToTop = () => {
 	.search-results {
 		display: flex;
 		flex-direction: column;
-		transition: var(--transition-duration) all ease-in-out;
+		position: relative;
+
+		&::before {
+			--position: center;
+
+			@include mobile {
+				--position: top center;
+			}
+
+			content: '';
+			display: block;
+			background-image: url('images/loading.svg');
+			background-repeat: no-repeat;
+			background-size: 100px 100px;
+			background-position: var(--position);
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			z-index: -1;
+			transition: var(--transition-duration) all ease-in-out;
+		}
+
+		> * {
+			transition: var(--transition-duration) all ease-in-out;
+		}
 
 		&[data-loading="true"] {
-			opacity: 0;
+			&::before {
+				opacity: 1;
+				z-index: 0;
+			}
+
+			> * {
+				opacity: 0;
+			}
 		}
 
 		&__status {

@@ -75,7 +75,7 @@
 		align-items: center;
 		flex-direction: column;
 		gap: 32px;
-		padding: 16px;
+		padding: 32px 16px;
 		max-width: 1200px;
 		margin: auto;
 	}
